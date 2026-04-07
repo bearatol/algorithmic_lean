@@ -1,0 +1,33 @@
+package main
+
+import (
+	"testing"
+)
+
+func TestSingleNumber(t *testing.T) {
+	tests := []struct {
+		name string
+		nums []int
+		want int
+	}{
+		{
+			name: "[2,2,1]",
+			nums: []int{2, 2, 1},
+			want: 1,
+		},
+		{
+			name: "[4,1,2,1,2]",
+			nums: []int{4, 1, 2, 1, 2},
+			want: 4,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := singleNumber(tt.nums)
+			if got != tt.want {
+				t.Errorf("singleNumber(%v) = %d, want %d", tt.nums, got, tt.want)
+			}
+		})
+	}
+}
