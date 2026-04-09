@@ -14,6 +14,22 @@ func main() {
 
 // isSubsequence проверяет является ли s подпоследовательностью t
 func isSubsequence(s, t string) bool {
-	// Ваше решение
+	if len(s) == 0 {
+		return true
+	}
+	if len(t) == 0 {
+		return false
+	}
+
+	sIdx := 0
+	for i := 0; i < len(t); i++ {
+		if t[i] == s[sIdx] {
+			sIdx++
+		}
+
+		if len(s) == sIdx {
+			return true
+		}
+	}
 	return false
 }

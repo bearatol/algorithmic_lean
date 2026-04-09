@@ -12,5 +12,14 @@ func main() {
 
 // moveZeroes перемещает все нули в конец массива
 func moveZeroes(nums []int) {
-	// Ваше решение
+	idx := 0
+	for i := 0; i < len(nums); i++ {
+		if nums[i] == 0 {
+			continue
+		}
+		if nums[i] != 0 {
+			nums[idx], nums[i] = nums[i], nums[idx]
+			idx++
+		}
+	}
 }
