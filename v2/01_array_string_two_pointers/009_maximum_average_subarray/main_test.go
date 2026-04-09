@@ -34,7 +34,7 @@ func TestMaximumAverageSubarray(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := maximumAverageSubarray(tt.nums, tt.k)
+			got := findMaxAverage(tt.nums, tt.k)
 			if math.Abs(got-tt.want) > 0.001 {
 				t.Errorf("maximumAverageSubarray(%v, %d) = %f, want %f", tt.nums, tt.k, got, tt.want)
 			}

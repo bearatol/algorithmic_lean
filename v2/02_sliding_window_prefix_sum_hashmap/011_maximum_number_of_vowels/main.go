@@ -12,6 +12,33 @@ func main() {
 
 // maxVowels возвращает максимальное количество гласных в подстроке длины k
 func maxVowels(s string, k int) int {
-	// Ваше решение
-	return 0
+	maxWindow := 0
+	for i := range k {
+		if checkVowels(s[i]) {
+			maxWindow++
+		}
+	}
+
+	resSum := maxWindow
+	for i := k; i < len(s); i++ {
+		if checkVowels(s[i]) {
+			maxWindow++
+		}
+		if checkVowels(s[i-k]) {
+			maxWindow--
+		}
+		if maxWindow > resSum {
+			resSum = maxWindow
+		}
+	}
+
+	return resSum
+}
+
+func checkVowels(symbol byte) bool {
+	return symbol == 97 ||
+		symbol == 101 ||
+		symbol == 105 ||
+		symbol == 111 ||
+		symbol == 117
 }

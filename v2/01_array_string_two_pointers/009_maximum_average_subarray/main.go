@@ -10,8 +10,22 @@ func main() {
 	// Реализуйте решение здесь
 }
 
-// maximumAverageSubarray возвращает максимальную среднюю подмассива длины k
-func maximumAverageSubarray(nums []int, k int) float64 {
-	// Ваше решение
-	return 0.0
+// findMaxAverage возвращает максимальную среднюю подмассива длины k
+func findMaxAverage(nums []int, k int) float64 {
+	window := 0
+	for i := 0; i < k; i++ {
+		window += nums[i]
+	}
+
+	res := window
+	for i := k; i < len(nums); i++ {
+		window -= nums[i-k]
+		window += nums[i]
+
+		if window > res {
+			res = window
+		}
+	}
+
+	return float64(res) / float64(k)
 }

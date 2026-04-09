@@ -12,6 +12,12 @@ func TestMaxVowels(t *testing.T) {
 		want int
 	}{
 		{
+			name: "rhythms, k=4",
+			s:    "rhythms",
+			k:    4,
+			want: 0,
+		},
+		{
 			name: "abciiidef, k=3",
 			s:    "abciiidef",
 			k:    3,
